@@ -14,7 +14,8 @@ const JWT_SECRET =
 
 const mongoUrl =
   "mongodb+srv://admin:3526@cluster0.4pvv9.mongodb.net/login";
-  mongoose
+
+mongoose
   .connect(mongoUrl, {
     useNewUrlParser: true,
   })
@@ -47,6 +48,7 @@ app.post("/register", async (req, res) => {
     res.send({ status: "error" });
   }
 });
+
 app.post("/login-user", async (req, res) => {
   const { email, password } = req.body;
 
@@ -65,6 +67,7 @@ app.post("/login-user", async (req, res) => {
   }
   res.json({ status: "error", error: "InvAlid Password" });
 });
+
 app.post("/userData", async (req, res) => {
   const { token } = req.body;
   try {
@@ -86,7 +89,8 @@ app.listen(3000, () => {
   console.log("Server Started");
 });
 
-
+const socketio = require("socket.io");
+const io = socketio(servidor);
 
 //Funcionalidad de socket.io en el servidor
 io.on("connection", (socket) => {
