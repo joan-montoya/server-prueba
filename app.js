@@ -118,3 +118,4 @@ io.on("connection", (socket) => {
   });
 });
 
+servidor.listen(5000, () => console.log("Servidor inicializado"));
