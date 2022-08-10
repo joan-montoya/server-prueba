@@ -84,13 +84,19 @@ app.post("/userData", async (req, res) => {
       });
   } catch (error) {}
 });
+const socketio = require("socket.io");
 
-app.listen(3000, () => {
-  console.log("Server Started");
+const server = app.listen(3000, () =>
+  console.log(`Server started on ${3000}`)
+);
+const io = socketio(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
 });
 
-const socketio = require("socket.io");
-const io = socketio(servidor);
+
 
 //Funcionalidad de socket.io en el servidor
 io.on("connection", (socket) => {
@@ -118,4 +124,3 @@ io.on("connection", (socket) => {
   });
 });
 
-servidor.listen(5000, () => console.log("Servidor inicializado"));
