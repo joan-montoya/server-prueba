@@ -86,8 +86,7 @@ app.listen(3000, () => {
   console.log("Server Started");
 });
 
-const socketio = require("socket.io");
-const io = socketio(servidor);
+
 
 //Funcionalidad de socket.io en el servidor
 io.on("connection", (socket) => {
