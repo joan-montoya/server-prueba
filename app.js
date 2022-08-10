@@ -105,10 +105,7 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("mensaje", (nombre, mensaje) => {
-    //io.emit manda el mensaje a todos los clientes conectados al chat
-    io.emit("mensajes", { nombre, mensaje });
-  });
+  
 
   socket.on("disconnect", () => {
     io.emit("mensajes", {
