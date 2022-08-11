@@ -86,7 +86,7 @@ app.post("/userData", async (req, res) => {
 });
 const socketio = require("socket.io");
 
-const server = app.listen(3000, () =>
+const server = app.listen(3000 || PORT, () =>
   console.log(`Server started on ${3000}`)
 );
 const io = socketio(server, {
